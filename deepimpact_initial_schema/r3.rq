@@ -1,0 +1,44 @@
+PREFIX : <http://askomics.org/data/>
+PREFIX askomics: <http://askomics.org/internal/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX faldo: <http://biohackathon.org/resource/faldo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?FIELD_ID1_Label ?FIELD_ID1_CAMPAIGN ?LOCATION1_REGION ?AGRICULTURE1_SOIL_MANAGMENT ?AGRICULTURE1_CROP ?AGRICULTURE1_AGRI_TYPE ?FIELD_SUB_ID1_SEASON ?SOILS69_NITROGEN_TOTAL ?SOILS69_PH ?SOILS69_ORGANIC_MATTER ?SOILS69_PHOSPHATE
+WHERE {
+    ?LOCATION5_uri <http://askomics.org/data/location_of> ?FIELD_ID1_uri .
+    ?AGRICULTURE30_uri <http://askomics.org/data/agriculture_of> ?FIELD_ID1_uri .
+    ?FIELD_SUB_ID59_uri <http://askomics.org/data/season_of> ?FIELD_ID1_uri .
+    ?SOILS69_uri <http://askomics.org/data/soils_sample_of> ?FIELD_SUB_ID59_uri .
+    ?FIELD_ID1_uri rdf:type <http://askomics.org/data/FIELD_ID> .
+    ?FIELD_ID1_uri rdfs:label ?FIELD_ID1_Label .
+    ?FIELD_ID1_uri <http://askomics.org/data/CAMPAIGN> ?FIELD_ID1_CAMPAIGNCategory .
+    ?FIELD_ID1_CAMPAIGNCategory rdfs:label ?FIELD_ID1_CAMPAIGN .
+    ?LOCATION5_uri rdf:type <http://askomics.org/data/LOCATION> .
+    ?LOCATION5_uri <http://askomics.org/data/REGION> ?LOCATION5_REGIONCategory .
+    ?LOCATION5_REGIONCategory rdfs:label ?LOCATION1_REGION .
+    ?AGRICULTURE30_uri rdf:type <http://askomics.org/data/AGRICULTURE> .
+    ?AGRICULTURE30_uri <http://askomics.org/data/SOIL_MANAGMENT> ?AGRICULTURE30_SOIL_MANAGMENTCategory .
+    ?AGRICULTURE30_SOIL_MANAGMENTCategory rdfs:label ?AGRICULTURE1_SOIL_MANAGMENT .
+    ?AGRICULTURE30_uri <http://askomics.org/data/CROP> ?AGRICULTURE30_CROPCategory .
+    ?AGRICULTURE30_CROPCategory rdfs:label ?AGRICULTURE1_CROP .
+    ?AGRICULTURE30_uri <http://askomics.org/data/AGRI_TYPE> ?AGRICULTURE30_AGRI_TYPECategory .
+    ?AGRICULTURE30_AGRI_TYPECategory rdfs:label ?AGRICULTURE1_AGRI_TYPE .
+    ?FIELD_SUB_ID59_uri rdf:type <http://askomics.org/data/FIELD_SUB_ID> .
+    ?FIELD_SUB_ID59_uri <http://askomics.org/data/SEASON> ?FIELD_SUB_ID59_SEASONCategory .
+    ?FIELD_SUB_ID59_SEASONCategory rdfs:label ?FIELD_SUB_ID1_SEASON .
+    ?SOILS69_uri rdf:type <http://askomics.org/data/SOILS> .
+    ?SOILS69_uri <http://askomics.org/data/NITROGEN_TOTAL> ?SOILS69_NITROGEN_TOTAL .
+    ?SOILS69_uri <http://askomics.org/data/PH> ?SOILS69_PH .
+    ?SOILS69_uri <http://askomics.org/data/ORGANIC_MATTER> ?SOILS69_ORGANIC_MATTER .
+    ?SOILS69_uri <http://askomics.org/data/PHOSPHATE> ?SOILS69_PHOSPHATE .
+
+
+
+}

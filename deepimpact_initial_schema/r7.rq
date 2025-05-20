@@ -1,0 +1,46 @@
+PREFIX : <http://askomics.org/data/>
+PREFIX askomics: <http://askomics.org/internal/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX faldo: <http://biohackathon.org/resource/faldo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?FIELD_ID1_Label ?FIELD_ID1_CAMPAIGN ?AGRICULTURE1_SOIL_MANAGMENT ?AGRICULTURE1_CROP ?AGRICULTURE1_AGRI_TYPE ?AGRICULTURE1_LIVESTOCK ?FIELD_SUB_ID1_SEASON ?PLOT_ID_SEASONAL1_Label ?WEEDS1_PHENOLOGY_STAGE ?WEEDS1_WEED_SPECIES ?WEEDS1_DENSITY_CLASS
+WHERE {
+    ?AGRICULTURE8_uri <http://askomics.org/data/agriculture_of> ?FIELD_ID1_uri .
+    ?FIELD_SUB_ID37_uri <http://askomics.org/data/season_of> ?FIELD_ID1_uri .
+    ?PLOT_ID_SEASONAL44_uri <http://askomics.org/data/plot_of> ?FIELD_SUB_ID37_uri .
+    ?WEEDS57_uri <http://askomics.org/data/weeds_sample_of> ?PLOT_ID_SEASONAL44_uri .
+    ?FIELD_ID1_uri rdf:type <http://askomics.org/data/FIELD_ID> .
+    ?FIELD_ID1_uri rdfs:label ?FIELD_ID1_Label .
+    OPTIONAL {?FIELD_ID1_uri <http://askomics.org/data/CAMPAIGN> ?FIELD_ID1_CAMPAIGNCategory .
+        OPTIONAL {?FIELD_ID1_CAMPAIGNCategory rdfs:label ?FIELD_ID1_CAMPAIGN .}}
+    ?AGRICULTURE8_uri rdf:type <http://askomics.org/data/AGRICULTURE> .
+    OPTIONAL {?AGRICULTURE8_uri <http://askomics.org/data/SOIL_MANAGMENT> ?AGRICULTURE8_SOIL_MANAGMENTCategory .
+        OPTIONAL {?AGRICULTURE8_SOIL_MANAGMENTCategory rdfs:label ?AGRICULTURE1_SOIL_MANAGMENT .}}
+    OPTIONAL {?AGRICULTURE8_uri <http://askomics.org/data/CROP> ?AGRICULTURE8_CROPCategory .
+        OPTIONAL {?AGRICULTURE8_CROPCategory rdfs:label ?AGRICULTURE1_CROP .}}
+    OPTIONAL {?AGRICULTURE8_uri <http://askomics.org/data/AGRI_TYPE> ?AGRICULTURE8_AGRI_TYPECategory .
+        OPTIONAL {?AGRICULTURE8_AGRI_TYPECategory rdfs:label ?AGRICULTURE1_AGRI_TYPE .}}
+    OPTIONAL {?AGRICULTURE8_uri <http://askomics.org/data/LIVESTOCK> ?AGRICULTURE1_LIVESTOCK .}
+    ?FIELD_SUB_ID37_uri rdf:type <http://askomics.org/data/FIELD_SUB_ID> .
+    ?FIELD_SUB_ID37_uri <http://askomics.org/data/SEASON> ?FIELD_SUB_ID37_SEASONCategory .
+    ?FIELD_SUB_ID37_SEASONCategory rdfs:label ?FIELD_SUB_ID1_SEASON .
+    ?PLOT_ID_SEASONAL44_uri rdf:type <http://askomics.org/data/PLOT_ID_SEASONAL> .
+    ?PLOT_ID_SEASONAL44_uri rdfs:label ?PLOT_ID_SEASONAL1_Label .
+    ?WEEDS57_uri rdf:type <http://askomics.org/data/WEEDS> .
+    ?WEEDS57_uri <http://askomics.org/data/PHENOLOGY_STAGE> ?WEEDS57_PHENOLOGY_STAGECategory .
+    ?WEEDS57_PHENOLOGY_STAGECategory rdfs:label ?WEEDS1_PHENOLOGY_STAGE .
+    ?WEEDS57_uri <http://askomics.org/data/WEED_SPECIES> ?WEEDS57_WEED_SPECIESCategory .
+    ?WEEDS57_WEED_SPECIESCategory rdfs:label ?WEEDS1_WEED_SPECIES .
+    ?WEEDS57_uri <http://askomics.org/data/DENSITY_CLASS> ?WEEDS57_DENSITY_CLASSCategory .
+    ?WEEDS57_DENSITY_CLASSCategory rdfs:label ?WEEDS1_DENSITY_CLASS .
+
+
+
+}

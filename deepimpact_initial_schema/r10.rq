@@ -1,0 +1,57 @@
+PREFIX : <http://askomics.org/data/>
+PREFIX askomics: <http://askomics.org/internal/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX faldo: <http://biohackathon.org/resource/faldo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?SAFRAN_GRID1_GRID_CELL ?LOCATION1_Label ?LOCATION1_REGION ?FIELD_ID1_Label ?FIELD_ID1_CAMPAIGN ?CLIMATIC_DATA37_swi_q ?CLIMATIC_DATA37_DATE ?CLIMATIC_DATA37_prenei_q ?CLIMATIC_DATA37_etp_q ?CLIMATIC_DATA37_t_q ?CLIMATIC_DATA37_pe_q ?CLIMATIC_DATA37_ssi_q ?CLIMATIC_DATA37_q_q ?CLIMATIC_DATA37_wg_racine_q ?CLIMATIC_DATA37_preliq_q ?CLIMATIC_DATA37_tsup_h_q ?CLIMATIC_DATA37_hu_q ?CLIMATIC_DATA37_dli_q ?CLIMATIC_DATA37_evap_q ?CLIMATIC_DATA37_wgi_racine_q ?CLIMATIC_DATA37_tinf_h_q ?CLIMATIC_DATA37_ff_q ?YIELDS85_FRESH_WEIGHT_1000_SEEDS ?YIELDS85_DRY_WEIGHT_1000_SEEDS ?YIELDS85_DRY_WEIGHT
+WHERE {
+    ?LOCATION8_uri <http://askomics.org/data/locatedIn> ?SAFRAN_GRID1_uri .
+    ?LOCATION8_uri <http://askomics.org/data/location_of> ?FIELD_ID17_uri .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/sample_of> ?SAFRAN_GRID1_uri .
+    ?PLOT_ID_ANNUAL71_uri <http://askomics.org/data/plot_of> ?FIELD_ID17_uri .
+    ?YIELDS85_uri <http://askomics.org/data/yield_sample_of> ?PLOT_ID_ANNUAL71_uri .
+    ?SAFRAN_GRID1_uri rdf:type <http://askomics.org/data/SAFRAN_GRID> .
+    ?SAFRAN_GRID1_uri <http://askomics.org/data/GRID_CELL> ?SAFRAN_GRID1_GRID_CELLCategory .
+    ?SAFRAN_GRID1_GRID_CELLCategory rdfs:label ?SAFRAN_GRID1_GRID_CELL .
+    ?LOCATION8_uri rdf:type <http://askomics.org/data/LOCATION> .
+    ?LOCATION8_uri rdfs:label ?LOCATION1_Label .
+    ?LOCATION8_uri <http://askomics.org/data/REGION> ?LOCATION8_REGIONCategory .
+    ?LOCATION8_REGIONCategory rdfs:label ?LOCATION1_REGION .
+    ?FIELD_ID17_uri rdf:type <http://askomics.org/data/FIELD_ID> .
+    ?FIELD_ID17_uri rdfs:label ?FIELD_ID1_Label .
+    ?FIELD_ID17_uri <http://askomics.org/data/CAMPAIGN> ?FIELD_ID17_CAMPAIGNCategory .
+    ?FIELD_ID17_CAMPAIGNCategory rdfs:label ?FIELD_ID1_CAMPAIGN .
+    ?CLIMATIC_DATA37_uri rdf:type <http://askomics.org/data/CLIMATIC-DATA> .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/swi_q> ?CLIMATIC_DATA37_swi_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/DATE> ?CLIMATIC_DATA37_DATE .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/prenei_q> ?CLIMATIC_DATA37_prenei_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/etp_q> ?CLIMATIC_DATA37_etp_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/t_q> ?CLIMATIC_DATA37_t_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/pe_q> ?CLIMATIC_DATA37_pe_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/ssi_q> ?CLIMATIC_DATA37_ssi_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/q_q> ?CLIMATIC_DATA37_q_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/wg_racine_q> ?CLIMATIC_DATA37_wg_racine_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/preliq_q> ?CLIMATIC_DATA37_preliq_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/tsup_h_q> ?CLIMATIC_DATA37_tsup_h_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/hu_q> ?CLIMATIC_DATA37_hu_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/dli_q> ?CLIMATIC_DATA37_dli_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/evap_q> ?CLIMATIC_DATA37_evap_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/wgi_racine_q> ?CLIMATIC_DATA37_wgi_racine_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/tinf_h_q> ?CLIMATIC_DATA37_tinf_h_q .
+    ?CLIMATIC_DATA37_uri <http://askomics.org/data/ff_q> ?CLIMATIC_DATA37_ff_q .
+    ?PLOT_ID_ANNUAL71_uri rdf:type <http://askomics.org/data/PLOT_ID_ANNUAL> .
+    ?YIELDS85_uri rdf:type <http://askomics.org/data/YIELDS> .
+    ?YIELDS85_uri <http://askomics.org/data/FRESH_WEIGHT_1000_SEEDS> ?YIELDS85_FRESH_WEIGHT_1000_SEEDS .
+    ?YIELDS85_uri <http://askomics.org/data/DRY_WEIGHT_1000_SEEDS> ?YIELDS85_DRY_WEIGHT_1000_SEEDS .
+    ?YIELDS85_uri <http://askomics.org/data/DRY_WEIGHT> ?YIELDS85_DRY_WEIGHT .
+
+
+
+}

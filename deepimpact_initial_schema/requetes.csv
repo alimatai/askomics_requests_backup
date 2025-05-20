@@ -1,0 +1,12 @@
+Description	campagne	saison	région	affichage des valeurs NA	nombre de lignes renvoyées	temps d'éxécution 	Sparql AskOmics	fichier de résultats	Remarque
+Taux de calcium et de magnésium des sols des champs de blé en agriculture biologique du sud de la France à la 2ème saison d'échantillonnage de la 1ère année	Y1	S2	sud	non	2	1s	r1.rq	r1.csv	Très peu de lignes de résultats = beaucoup de NA dans au moins des variables
+Taux de calcium et de magnésium des sols des champs de blé en agriculture biologique du sud de la France à la 2ème saison d'échantillonnage de la 1ère année (NA affichés)	Y2	S2	sud	oui	38	6s	r2.rq	r2.csv	Identique à la précédente, mais avec affichage des NA dans les résultats
+Valeurs de MO, pH, phosphate (biochimie du sol) et de pratiques agricoles dans tous les champs	toutes	toutes	toutes	non	93	8s	r3.rq	r3.csv	
+Valeurs d'azote, MO, pH, phosphate (biochimie du sol) et de pratiques agricoles dans tous les champs	toutes	toutes	toutes	oui	162	6s	r4.rq	r4.csv	Presque identique à la précédente (une variable en plus + NA affichés)
+Valeurs des rendements (en masse sèche) des parcelles des champs de la région Est lors de la 2ème année d'échantillonnage	Y2	NA	est	non	144	2s	r5.rq	r5.csv	
+Valeurs des rendements (en masse sèche) des parcelles des champs de la région Est lors de la 2ème année d'échantillonnage + affichage de pratiques agricoles	Y2	NA	est	oui	144	1s	r6.rq	r6.csv	Presque identique à la précédente (variables en plus + NA affichés)
+Affichage des inventaires d'adventices dans tous les champs, toute année, toute saison + affichage de pratiques agricoles	tous	tous	tous	oui	8?418 	4s	r7.rq	r7.csv	
+Affichage de la présence de certains bioagresseurs et de certains traits phénotypiques des plantes hôtes	tous	tous	tous	oui	7959	6s	r8.rq	r8.csv	
+Affichage de la présence de certains bioagresseurs et de certains traits phénotypiques des plantes hôtes (+filtres de valeurs sur quelques variables)	Y1	S1	ouest et sud	oui	3520	1s	r9.rq	r9.csv	
+Affichage des rendements des champs et de toutes les variables climatiques	tous	tous	tous	oui	902?280	3m42s	r10.rq	r10.csv	Là, c'est beaucoup : une donnée par jour pour chaque variable climatique * le nombre de champs et leurs rendements (133.5 Mb)
+Affichage des valeurs de quelques variables de rendements des cultures	Y2	NA	tous	non	404	1s	r11.rq	r11.csv	

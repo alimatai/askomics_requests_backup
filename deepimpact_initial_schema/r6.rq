@@ -1,0 +1,43 @@
+PREFIX : <http://askomics.org/data/>
+PREFIX askomics: <http://askomics.org/internal/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX faldo: <http://biohackathon.org/resource/faldo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?FIELD_ID1_Label ?FIELD_ID1_CAMPAIGN ?LOCATION1_REGION ?PLOT_ID_ANNUAL1_Label ?YIELDS87_DRY_WEIGHT_1000_SEEDS ?YIELDS87_DRY_WEIGHT ?AGRICULTURE1_Label ?AGRICULTURE1_SOIL_MANAGMENT ?AGRICULTURE1_CROP ?AGRICULTURE1_AGRI_TYPE
+WHERE {
+    ?LOCATION28_uri <http://askomics.org/data/location_of> ?FIELD_ID1_uri .
+    ?PLOT_ID_ANNUAL56_uri <http://askomics.org/data/plot_of> ?FIELD_ID1_uri .
+    ?YIELDS87_uri <http://askomics.org/data/yield_sample_of> ?PLOT_ID_ANNUAL56_uri .
+    ?AGRICULTURE105_uri <http://askomics.org/data/agriculture_of> ?FIELD_ID1_uri .
+    ?FIELD_ID1_uri rdf:type <http://askomics.org/data/FIELD_ID> .
+    ?FIELD_ID1_uri rdfs:label ?FIELD_ID1_Label .
+    ?FIELD_ID1_uri <http://askomics.org/data/CAMPAIGN> ?FIELD_ID1_CAMPAIGNCategory .
+    ?FIELD_ID1_CAMPAIGNCategory rdfs:label ?FIELD_ID1_CAMPAIGN .
+    ?LOCATION28_uri rdf:type <http://askomics.org/data/LOCATION> .
+    ?LOCATION28_uri <http://askomics.org/data/REGION> ?LOCATION28_REGIONCategory .
+    ?LOCATION28_REGIONCategory rdfs:label ?LOCATION1_REGION .
+    ?PLOT_ID_ANNUAL56_uri rdf:type <http://askomics.org/data/PLOT_ID_ANNUAL> .
+    ?PLOT_ID_ANNUAL56_uri rdfs:label ?PLOT_ID_ANNUAL1_Label .
+    ?YIELDS87_uri rdf:type <http://askomics.org/data/YIELDS> .
+    ?YIELDS87_uri <http://askomics.org/data/DRY_WEIGHT_1000_SEEDS> ?YIELDS87_DRY_WEIGHT_1000_SEEDS .
+    ?YIELDS87_uri <http://askomics.org/data/DRY_WEIGHT> ?YIELDS87_DRY_WEIGHT .
+    ?AGRICULTURE105_uri rdf:type <http://askomics.org/data/AGRICULTURE> .
+    ?AGRICULTURE105_uri rdfs:label ?AGRICULTURE1_Label .
+    OPTIONAL {?AGRICULTURE105_uri <http://askomics.org/data/SOIL_MANAGMENT> ?AGRICULTURE105_SOIL_MANAGMENTCategory .
+        OPTIONAL {?AGRICULTURE105_SOIL_MANAGMENTCategory rdfs:label ?AGRICULTURE1_SOIL_MANAGMENT .}}
+    OPTIONAL {?AGRICULTURE105_uri <http://askomics.org/data/CROP> ?AGRICULTURE105_CROPCategory .
+        OPTIONAL {?AGRICULTURE105_CROPCategory rdfs:label ?AGRICULTURE1_CROP .}}
+    OPTIONAL {?AGRICULTURE105_uri <http://askomics.org/data/AGRI_TYPE> ?AGRICULTURE105_AGRI_TYPECategory .
+        OPTIONAL {?AGRICULTURE105_AGRI_TYPECategory rdfs:label ?AGRICULTURE1_AGRI_TYPE .}}
+
+
+    VALUES ?FIELD_ID1_CAMPAIGNCategory { <http://askomics.org/data/Y2> }
+    VALUES ?LOCATION28_REGIONCategory { <http://askomics.org/data/EAST> }
+}

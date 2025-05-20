@@ -1,0 +1,39 @@
+PREFIX : <http://askomics.org/data/>
+PREFIX askomics: <http://askomics.org/internal/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX faldo: <http://biohackathon.org/resource/faldo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?FIELD_ID1_Label ?AGRICULTURE1_CROP ?AGRICULTURE1_AGRI_TYPE ?SOILS69_MAGNESIUM ?SOILS69_CALCIUM
+WHERE {
+    ?LOCATION5_uri <http://askomics.org/data/location_of> ?FIELD_ID1_uri .
+    ?AGRICULTURE30_uri <http://askomics.org/data/agriculture_of> ?FIELD_ID1_uri .
+    ?FIELD_SUB_ID59_uri <http://askomics.org/data/season_of> ?FIELD_ID1_uri .
+    ?SOILS69_uri <http://askomics.org/data/soils_sample_of> ?FIELD_SUB_ID59_uri .
+    ?FIELD_ID1_uri rdf:type <http://askomics.org/data/FIELD_ID> .
+    ?FIELD_ID1_uri rdfs:label ?FIELD_ID1_Label .
+    ?FIELD_ID1_uri <http://askomics.org/data/CAMPAIGN> ?FIELD_ID1_CAMPAIGNCategory .
+    ?LOCATION5_uri rdf:type <http://askomics.org/data/LOCATION> .
+    ?LOCATION5_uri <http://askomics.org/data/REGION> ?LOCATION5_REGIONCategory .
+    ?AGRICULTURE30_uri rdf:type <http://askomics.org/data/AGRICULTURE> .
+    OPTIONAL {?AGRICULTURE30_uri <http://askomics.org/data/CROP> ?AGRICULTURE30_CROPCategory .
+        OPTIONAL {?AGRICULTURE30_CROPCategory rdfs:label ?AGRICULTURE1_CROP .}}
+    OPTIONAL {?AGRICULTURE30_uri <http://askomics.org/data/AGRI_TYPE> ?AGRICULTURE30_AGRI_TYPECategory .
+        OPTIONAL {?AGRICULTURE30_AGRI_TYPECategory rdfs:label ?AGRICULTURE1_AGRI_TYPE .}}
+    ?FIELD_SUB_ID59_uri rdf:type <http://askomics.org/data/FIELD_SUB_ID> .
+    ?FIELD_SUB_ID59_uri <http://askomics.org/data/SEASON> ?FIELD_SUB_ID59_SEASONCategory .
+    ?SOILS69_uri rdf:type <http://askomics.org/data/SOILS> .
+    OPTIONAL {?SOILS69_uri <http://askomics.org/data/MAGNESIUM> ?SOILS69_MAGNESIUM .}
+    OPTIONAL {?SOILS69_uri <http://askomics.org/data/CALCIUM> ?SOILS69_CALCIUM .}
+
+
+    VALUES ?FIELD_ID1_CAMPAIGNCategory { <http://askomics.org/data/Y1> }
+    VALUES ?LOCATION5_REGIONCategory { <http://askomics.org/data/SOUTH> }
+    VALUES ?FIELD_SUB_ID59_SEASONCategory { <http://askomics.org/data/S2> }
+}
